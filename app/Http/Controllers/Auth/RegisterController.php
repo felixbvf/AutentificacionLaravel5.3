@@ -68,4 +68,15 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function register(Request $request){
+        $this->validator($request->all())->validate();
+        $this->guard()->login($this->create($request->all()));
+        return redirect($this->redirectPath());
+
+    }
+    public function redirectPath(){
+        //return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        return auth()->user()->isAdmin() ? 'admin' : '/';
+    }
 }
