@@ -29,4 +29,19 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    // public function sendResetLinkEmail(Request $request){
+    //     $this->validate($request, ['email' => 'required|email']);
+    //     $response =$this->broker()->sendResetLink(
+    //                 $request->only('email'), $this->resetNotifier()
+    //     );
+    //
+    //     if ($response === Password::RESET_LINK_SENT){
+    //         return back()->with('status', trans($response));
+    //     }
+    //
+    //     return back()->withErrors(
+    //             ['email' => trans($response)]
+    //     );
+    // }
 }
