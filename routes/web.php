@@ -26,6 +26,12 @@ Route::get('points', function () {
     // return $users->sum(function ($user) {
     //     return $user->points;
     // });
+
+    //utilizando dd y filter  en una coleccion falta progra
+    // dd($user->posts->filter(function ($post) {
+    //     return $post->points > 10;
+    // }));
+
 });
 
 //Authentication Routes.....
