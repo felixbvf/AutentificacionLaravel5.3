@@ -10,9 +10,22 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+use App\User;
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('points', function () {
+    //$users= User::all();  // Eloquent
+    $users= DB::table('users')->get();  // Fluent obtiene una coleccion en laravel 5.3
+    //calcula el promedio de points
+    return $users->avg(function ($user) {
+        return $user->points;
+    });
+    //Relaiza sumatoria de points
+    // return $users->sum(function ($user) {
+    //     return $user->points;
+    // });
 });
 
 //Authentication Routes.....
